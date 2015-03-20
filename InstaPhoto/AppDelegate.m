@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ProfileViewController.h"
+#import "FeedViewController.h"
+#import "FavoritesViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,33 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.feedViewController = [[FeedViewController alloc] init];
+    
+    UIViewController *favoritesViewController = [[UIViewController alloc] init];
+    favoritesViewController.title = @"Favorites";
+    favoritesViewController.tabBarItem.image = [UIImage imageNamed:@"/Users/huangzhaorong/Downloads/images/tab_favorites.png"];
+    
+    self.profileViewController = [[ProfileViewController alloc] init];
+    self.profileViewController.title = @"Profile";
+    self.profileViewController.tabBarItem.image = [UIImage imageNamed:@"/Users/huangzhaorong/Downloads/images/tab_profile.png"];
+    
+    
+//    self.profileViewController.view.backgroundColor = [UIColor greenColor];
+    
+//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+//    [tabBarController setViewControllers:@[feedController, favoritesViewController,self.profileViewController]];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.feedViewController];
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.rootViewController = tabBarController;
+    self.window.rootViewController = navController;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

@@ -11,7 +11,9 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) UIViewController *feedViewController;
+@property (strong, nonatomic) UIViewController *favoritesViewController;
+@property (strong, nonatomic) UIViewController *profileViewController;
 
 @end
 
