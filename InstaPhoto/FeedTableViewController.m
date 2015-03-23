@@ -41,13 +41,9 @@
 //        NSLog(@"Error: %@", error);
 //    }];
     
-    [[Photo alloc] fetchWithJSON];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(dataRetrieved)
-     name:@"fetchWithJSONFinishedLoading"
-     object:nil];
-    
+    self.photos = [[Photo alloc] fetchWithJSON];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"fetchWithJSONFinishedLoading" object:nil];
+    NSLog(@"^^^^ %@",[self.photos[0] title]);
 }
 
 -(void)dataRetrieved{
