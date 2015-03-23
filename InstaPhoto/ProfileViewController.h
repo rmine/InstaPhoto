@@ -8,8 +8,13 @@
 
 #import "ViewController.h"
 
+#import "Profile.h"
+
 @interface ProfileViewController : ViewController
 
 @property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) NSDictionary *userProfile;
+
+@property (strong, nonatomic) Profile *profile;
 
 @end

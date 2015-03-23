@@ -16,13 +16,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
-    [self setTitle:@"Favorites"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.view.backgroundColor = [UIColor redColor];
+        self.title = @"Favorites";
+        self.tabBarItem.image = [UIImage imageNamed:@"tab_favorites"];
+    }
+    
+    return self;
 }
 
 /*

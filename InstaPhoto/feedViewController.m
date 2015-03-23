@@ -17,8 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
-    [self setTitle:@"Feed"];
+
     
     UIButton *favoritesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     favoritesButton.frame = CGRectMake(60,100,200,44);
@@ -39,6 +38,15 @@
 {
     FavoritesViewController *favoritesViewController = [[FavoritesViewController alloc] init];
     [self.navigationController pushViewController:favoritesViewController animated:YES];
+}
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
+        self.view.backgroundColor = [UIColor blueColor];
+        self.title = @"Feed";
+        self.tabBarItem.image = [UIImage imageNamed:@"tab_feed.png"];
+    }
+    return  self;
 }
 
 /*

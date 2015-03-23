@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIViewController *feedViewController;
 @property (strong, nonatomic) UIViewController *favoritesViewController;
 @property (strong, nonatomic) UIViewController *profileViewController;
+@property (strong, nonatomic) UIViewController *feedTableViewController;
 
 @end
 

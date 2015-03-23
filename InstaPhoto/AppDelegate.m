@@ -10,6 +10,7 @@
 #import "ProfileViewController.h"
 #import "FeedViewController.h"
 #import "FavoritesViewController.h"
+#import "FeedTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,27 +23,33 @@
     
     self.feedViewController = [[FeedViewController alloc] init];
     
-    UIViewController *favoritesViewController = [[UIViewController alloc] init];
-    favoritesViewController.title = @"Favorites";
-    favoritesViewController.tabBarItem.image = [UIImage imageNamed:@"/Users/huangzhaorong/Downloads/images/tab_favorites.png"];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+
     
+    self.favoritesViewController = [[FavoritesViewController alloc] init];
     self.profileViewController = [[ProfileViewController alloc] init];
-    self.profileViewController.title = @"Profile";
-    self.profileViewController.tabBarItem.image = [UIImage imageNamed:@"/Users/huangzhaorong/Downloads/images/tab_profile.png"];
+ 
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
     
-//    self.profileViewController.view.backgroundColor = [UIColor greenColor];
     
-//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.feedViewController];
     
-//    [tabBarController setViewControllers:@[feedController, favoritesViewController,self.profileViewController]];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.feedViewController];
+    
+    self.feedTableViewController = [[FeedTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    UINavigationController *feedNavController = [[UINavigationController alloc] initWithRootViewController:self.feedTableViewController];
+    
+    
+    [tabBarController setViewControllers:@[self.feedViewController,self.favoritesViewController,self.profileViewController,feedNavController]];
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.rootViewController = tabBarController;
-    self.window.rootViewController = navController;
+    self.window.rootViewController = tabBarController;
+    
+    
+//    self.window.rootViewController = feedNavController;
     
     [self.window makeKeyAndVisible];
     
