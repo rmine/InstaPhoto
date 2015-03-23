@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
 
 @interface FeedTableViewController : UITableViewController
 
 @property (strong, nonatomic)NSArray *photos;
+@property (strong, nonatomic)Photo *photo;
 
 @end

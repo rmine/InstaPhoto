@@ -52,6 +52,7 @@
 
 -(void)dataRetrieved{
     NSLog(@"-----%@",self.photos);
+    NSLog(@"-----%@",[self.photos[0] title]);
 }
 
 
@@ -78,8 +79,8 @@
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
-//        self.title = @"FeedTable";
-//        self.tabBarItem.image = [UIImage imageNamed:@"tab_feed.png"];
+        self.title = @"FeedTable";
+        self.tabBarItem.image = [UIImage imageNamed:@"tab_feed.png"];
     }
     return  self;
 }
