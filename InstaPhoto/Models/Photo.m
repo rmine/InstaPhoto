@@ -21,19 +21,11 @@
 {
 
     NSString *url = @"http://localhost:4567/tableview";
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"JSON: %@", responseObject);
-        for (NSDictionary *dicPhoto in responseObject) {
-            Photo *photo = [[Photo alloc] init];
-            photo.title = dicPhoto[@"title"];
-            photo.detail = dicPhoto[@"detail"];
-            photo.file = dicPhoto[@"file"];
-            
-            [tempArray addObject:photo];
-        }
+        self.photos = responseObject;
 
         [[NSNotificationCenter defaultCenter] postNotificationName:@"fetchWithJSONFinishedLoading" object:nil];
         

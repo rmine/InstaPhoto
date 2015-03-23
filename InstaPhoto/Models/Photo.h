@@ -14,6 +14,8 @@
 @property (strong, nonatomic) NSString *detail;
 @property (strong, nonatomic) NSString *file;
 
+@property (strong, nonatomic)NSArray *photos;
+
 -(void)fetchWithJSON;
 
 @end
