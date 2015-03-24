@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "Photo.h"
 
 @interface PhotoViewController : ViewController
 
 @property (strong, nonatomic) NSString *imageFileName;
 @property (strong, nonatomic) NSArray *imageFileNames;
-@property (strong, nonatomic) NSDictionary *photo;
+@property (strong, nonatomic) Photo *photo;
 
 @end

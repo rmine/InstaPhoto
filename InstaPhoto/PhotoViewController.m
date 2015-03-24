@@ -52,7 +52,7 @@
     
     UILabel *desc = [[UILabel alloc] initWithFrame:CGRectMake(10, 300, 128, 128)];
     desc.backgroundColor = [UIColor whiteColor];
-    desc.text = self.photo[@"detail"];
+    desc.text = self.photo.detail;
     [self.view addSubview:desc];
 }
 

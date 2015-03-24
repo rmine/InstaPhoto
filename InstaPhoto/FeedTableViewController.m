@@ -43,12 +43,10 @@
     
     self.photos = [[Photo alloc] fetchWithJSON];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"fetchWithJSONFinishedLoading" object:nil];
-    NSLog(@"^^^^ %@",[self.photos[0] title]);
 }
 
 -(void)dataRetrieved{
-    NSLog(@"-----%@",self.photos);
-    NSLog(@"-----%@",[self.photos[0] title]);
+    [self.tableView reloadData];
 }
 
 
@@ -83,14 +81,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *photo = self.photos[indexPath.row];
+    Photo *photo = self.photos[indexPath.row];
     
-    NSString *title = [[NSString alloc] initWithFormat:photo[@"title"],nil];
+    NSString *title = photo.title;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:title];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"title"];
     
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:title];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"title"];
     }
     cell.textLabel.text = title;
     

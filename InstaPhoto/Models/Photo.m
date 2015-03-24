@@ -17,7 +17,7 @@
     return [super init];
 }
 
-- (NSArray *)fetchWithJSON
+- (NSMutableArray *)fetchWithJSON
 {
     NSString *url = @"http://localhost:4567/tableview";
     NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
@@ -34,19 +34,13 @@
             [tmpArray addObject:photo];
         }
         
-        self.photos = [[NSArray alloc] initWithArray:tmpArray];
-        NSLog(@"aa:%@",[self.photos[0] title]);
-        NSLog(@"aa:%@",[self.photos[2] title]);
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"fetchWithJSONFinishedLoading" object:nil];
-        
-         NSLog(@"bb:%@",[self.photos[4] title]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-    return self.photos;
+    return tmpArray;
 }
 
 @end
