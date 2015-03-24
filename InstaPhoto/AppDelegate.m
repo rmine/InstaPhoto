@@ -11,6 +11,8 @@
 #import "FeedViewController.h"
 #import "FavoritesViewController.h"
 #import "FeedTableViewController.h"
+#import "CityViewController.h"
+#import "EditNoteViewController.h"
 
 @interface AppDelegate ()
 
@@ -41,8 +43,14 @@
     
     UINavigationController *feedNavController = [[UINavigationController alloc] initWithRootViewController:self.feedTableViewController];
     
+    self.cityViewController = [[CityViewController alloc] init];
+    UINavigationController *cityNavController = [[UINavigationController alloc] initWithRootViewController:self.cityViewController];
     
-    [tabBarController setViewControllers:@[self.feedViewController,self.favoritesViewController,self.profileViewController,feedNavController]];
+//    self.editNoteViewController = [[EditNoteViewController alloc] init];
+//    UINavigationController *editNoteNavController = [[UINavigationController alloc] initWithRootViewController:self.editNoteViewController];
+    
+    
+    [tabBarController setViewControllers:@[self.feedViewController,self.favoritesViewController,self.profileViewController,feedNavController,cityNavController]];
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
