@@ -26,10 +26,6 @@
 //    imageView.frame = CGRectMake(10, 10, 300, 300);
 
     
-    NSLog(@"PhotoViewController===  %@",self.imageFileName);
-    
-    
-    
 }
 
 
@@ -47,7 +43,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.frame = CGRectMake(10, 100, 128, 128);
-    [imageView setImageWithURL:[NSURL URLWithString:self.imageFileName] placeholderImage:[UIImage imageNamed:@"avatar"]];
+    [imageView setImageWithURL:[NSURL URLWithString:self.photo.file] placeholderImage:[UIImage imageNamed:@"avatar"]];
     [self.view addSubview:imageView];
     
     UILabel *desc = [[UILabel alloc] initWithFrame:CGRectMake(10, 300, 128, 128)];

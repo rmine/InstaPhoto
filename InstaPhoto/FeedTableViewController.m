@@ -80,17 +80,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    Photo *photo = self.photos[indexPath.row];
-    
-    NSString *title = photo.title;
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"title"];
     
     if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"title"];
     }
-    cell.textLabel.text = title;
+    cell.textLabel.text = [self.photos[indexPath.row] title];
     
     return cell;
 }
